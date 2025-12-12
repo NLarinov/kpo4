@@ -59,38 +59,6 @@ docker compose up -d
 dotnet test
 ```
 
-### CI/CD
-
-Проект настроен с **GitHub Actions** для автоматического запуска тестов при каждом push и pull request.
-
-#### CI Workflow (`.github/workflows/ci.yml`)
-
-Автоматически запускается на ветках `main`, `master`, `develop` и выполняет:
-1. ✅ Восстановление зависимостей NuGet
-2. ✅ Сборку решения в Release режиме
-3. ✅ Запуск всех unit-тестов (PaymentsService.Tests и OrdersService.Tests)
-4. ✅ Отчет о результатах тестирования
-
-#### Docker Build Workflow (`.github/workflows/docker-build.yml`)
-
-Проверяет корректность сборки Docker образов для всех сервисов:
-- Payments Service
-- Orders Service
-- API Gateway
-- Frontend
-
-#### Локальная проверка CI
-
-Для проверки CI конфигурации локально можно использовать [act](https://github.com/nektos/act):
-
-```bash
-# Установка act (macOS)
-brew install act
-
-# Запуск CI workflow локально
-act push
-```
-
 ## Использование
 
 1. Откройте http://localhost в браузере
